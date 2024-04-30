@@ -1,5 +1,6 @@
 # RAG with Ollama & Llamaindex
 
+You can test this app in lightning studios via this [link](https://lightning.ai/maxidiazbattan/studios/grateful-sapphire-bo61), or locally following the steps below.
 
 ### 1. [Install](https://github.com/ollama/ollama?tab=readme-ov-file) ollama and pull models
 
@@ -38,3 +39,4 @@ streamlit run app.py
 
 - Add PDFs and ask questions. For this case I use this paper about the inadequacy of shap values
 - Example PDF: https://arxiv.org/pdf/2302.08160
+
