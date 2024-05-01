@@ -1,5 +1,6 @@
 # tools
 import glob
+from io import BytesIO
 from tempfile import NamedTemporaryFile
 
 # ollama
@@ -16,7 +17,9 @@ import streamlit as st
 
 
 def response_generator(stream):
-    """Generator that yields chunks of data from a stream response.
+    """
+    Generator that yields chunks of data from a stream response.
+    
     Args:
         stream: The stream object from which to read data chunks.
     Yields:
@@ -26,9 +29,9 @@ def response_generator(stream):
         yield chunk
 
 @st.cache_resource(show_spinner=False)
-def load_data(document, model_name:str) -> VectorStoreIndex:
-    """Loads and indexes Streamlit documentation using Ollama and Llamaindex.
-
+def load_data(document:BytesIO, model_name:str) -> VectorStoreIndex:
+    """
+    Loads and indexes Streamlit documentation using Ollama and Llamaindex.
     This function takes a model name as input and performs the following actions:
 
     1. Ollama Initialization: Initializes an Ollama instance using the provided model name. Ollama is a library that facilitates communication with large language models (LLMs).
@@ -38,7 +41,7 @@ def load_data(document, model_name:str) -> VectorStoreIndex:
     5. VectorStore Indexing: Creates a VectorStoreIndex instance from the processed documents and the service context. VectorStore is a library for efficient searching of high-dimensional vectors.
 
     Args:
-        # docs_path  (str): Path of the documents to query.
+        document (BytesIO): Document to query.
         model_name (str): The name of the LLM model to be used by Ollama.
 
     Returns:
@@ -69,8 +72,8 @@ def load_data(document, model_name:str) -> VectorStoreIndex:
     return index
 
 def main() -> None:
-    """Controls the main chat application logic using Streamlit and Ollama.
-
+    """
+    Controls the main chat application logic using Streamlit and Ollama.
     This function serves as the primary orchestrator of a chat application with the following tasks:
 
     1. Page Configuration: Sets up the Streamlit page's title, icon, layout, and sidebar using st.set_page_config.
@@ -87,9 +90,6 @@ def main() -> None:
           - Uses the chat engine to generate a response to the user's prompt.
           - Displays the assistant's response in the chat interface, employing st.write_stream for streaming responses.
           - Appends the assistant's response to the chat history.
-
-    Args:
-        docs_path (str): Path of the documents to query.
     """
 
     st.set_page_config(page_title="Chatbot", page_icon="🦙", layout="centered", initial_sidebar_state="auto", menu_items=None)
