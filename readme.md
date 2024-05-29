@@ -1,5 +1,6 @@
 # RAG with Ollama & Llamaindex
 
+This repo contains an implementation of an Retrieval-Augmented Generation (RAG) chatbot leveraging LlamaIndex, Ollama and Streamlit. The chatbot efficiently retrieves relevant information from documents and generates coherent, contextually appropriate responses.
 You can test this app in lightning studios via this [link](https://lightning.ai/maxidiazbattan/studios/rag-streamlit-llamaindex-ollama), or locally following the steps below.
 
 ### 1. [Install](https://github.com/ollama/ollama?tab=readme-ov-file) ollama and pull models
