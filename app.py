@@ -12,7 +12,7 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.core import Document, SimpleDirectoryReader, ServiceContext, VectorStoreIndex
 
-# ollama
+# streamlit
 import streamlit as st
 
 
